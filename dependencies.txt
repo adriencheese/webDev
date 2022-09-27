@@ -1,0 +1,22 @@
+DEPENDENCIES
+
+	Main Dependencies
+		npm i dotenv
+			allows for easy access of environmental variables
+		npm i express
+		npm i express-async-handler
+			middleware for handling async express routes and error handling
+		npm i jsonwebtoken
+			user authentication
+		npm i mongoose
+			works with MongoDB as an object modeling tool
+			used with making 'user' and 'goals' (objects) schema
+		npm i nodemon
+			 automatic updates of file changes. used during development
+			 
+	Password Dependencies
+		npm i bcryptjs
+		npm i jsonwebtoken
+
+	Misc Dependencies
+		npm i colors
