@@ -1,0 +1,67 @@
+/* What we're selecting */
+h1{
+    /* How to style it */
+    text-transform: uppercase;
+    border-top: 5px solid white;
+    /* color: purple; */
+
+}
+
+body {
+    background-color: rgb(91, 93, 214);
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+img {
+    height: 500px;
+} 
+
+#container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+button {
+    /* white space */
+    margin: 30px auto 0;
+    padding: 20px 25px;
+    border-radius: 25%;
+    /* color */
+    /* background-color: paleturquoise; */
+    border: 1px solid rgb(0, 0, 0);
+    /* font/text */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing:2px;
+    outline: none;
+}
+
+#nextbutton:hover {
+    transition: 100ms;
+    background-color: white;
+
+    /* to configure mouseout, you need js */
+    color: black; 
+    text-decoration: underline;
+}
+
+#backbutton:hover {
+    transition: 100ms;
+    background-color: white;
+
+    /* to configure mouseout, you need js */
+    color: black; 
+    text-decoration: underline;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+}
