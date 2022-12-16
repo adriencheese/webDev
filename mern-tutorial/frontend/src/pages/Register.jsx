@@ -1,15 +1,40 @@
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { FaUser } from 'react-icons/fa'
+import { register, reset } from '../features/auth/authSlice'
+import Spinner from '../components/Spinner'
 
 function Register() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
-        password2: ''
+        password2: '',
     })
 
     const { name, email, password, password2 } = formData
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { user, isLoading, isError, isSuccess, message } = useSelector(
+        (state) => state.auth
+    )
+
+    useEffect(() => {
+        if (isError) {
+            console.log()
+            toast.error(message)
+        }
+
+        if (isSuccess || user) {
+            navigate('/')
+        }
+
+        dispatch(reset())
+    }, [user, isError, isSuccess, message, navigate, dispatch])
 
     const onChange = (e) => {
         setFormData((prevState) => ({
@@ -19,7 +44,23 @@ function Register() {
     }
 
     const onSubmit = (e) => {
-        e.preventDefualt()
+        e.preventDefault()
+
+        if (password !== password2) {
+            toast.error('Passwords do not match')
+        } else {
+            const userData = {
+                name,
+                email,
+                password,
+            }
+
+            dispatch(register(userData))
+        }
+    }
+
+    if (isLoading) {
+        return <Spinner />
     }
 
     return (
@@ -28,9 +69,7 @@ function Register() {
                 <h1>
                     <FaUser /> Register
                 </h1>
-                <p>
-                    Please create an account
-                </p>
+                <p>Please create an account</p>
             </section>
 
             <section className='form'>
@@ -64,7 +103,7 @@ function Register() {
                             id='password'
                             name='password'
                             value={password}
-                            placeholder='Enter your password'
+                            placeholder='Enter password'
                             onChange={onChange}
                         />
                     </div>
@@ -75,7 +114,7 @@ function Register() {
                             id='password2'
                             name='password2'
                             value={password2}
-                            placeholder='Confirm your password'
+                            placeholder='Confirm password'
                             onChange={onChange}
                         />
                     </div>
@@ -86,7 +125,6 @@ function Register() {
                     </div>
                 </form>
             </section>
-
         </>
     )
 }
