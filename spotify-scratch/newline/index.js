@@ -77,22 +77,17 @@ app.get('/callback', (req, res) => {
     
     .then(response => { // activates on return of 200 status. we have access token now.
         if (response.status === 200) {
-            const { access_token, token_type } = response.data // response.data is info from spotify
-
-            axios.get('https://api.spotify.com/v1/me', { // now we can GET our information from Spotify using /me endpoint
-                headers: {
-                    Authorization: `${token_type} ${access_token}` // give spotify access token/type
-                }
+            const { access_token, refresh_token } = response.data // response.data is info from spotify
+            
+            const queryParams = querystring.stringify({
+                access_token,
+                refresh_token,
             })
-                .then(response => {
-                    res.send(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`) // on return of get, send information to the user
-                })
-                .catch(error => {
-                    res.send(error);
-                })
-                
+
+            res.redirect(`http://localhost:3000/?${queryParams}`)
+
         } else {
-            res.send(response);
+            res.redirect(`http://localhost:3000/?${queryParams}`)
         }
     })
     .catch(error => { // on return of error 
@@ -103,6 +98,8 @@ app.get('/callback', (req, res) => {
 app.get('/refresh_token', (req, res) => {
     const { refresh_token } = req.query; // req.query from URL defined in the get function in /callback
 
+    console.log('index.js: ')
+    console.log(`${refresh_token}`)
     axios({
         method: 'post',
         url: 'https://accounts.spotify.com/api/token',
@@ -112,7 +109,7 @@ app.get('/refresh_token', (req, res) => {
         }),
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`)}`
+            Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`
         },
     })
         .then(response => {
