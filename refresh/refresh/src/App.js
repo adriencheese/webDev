@@ -2,6 +2,7 @@ import testIMG from './assets/test.jpg';
 import './App.css';
 
 function App() {
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -11,7 +12,7 @@ function App() {
         </p>
         */}
         <p>
-          <code> CONTEXT AND CONTENTS </code>
+          CONTEXT AND CONTENTS
         </p>
         <img src={testIMG} className="zoom" alt="logo" />
         <p>
