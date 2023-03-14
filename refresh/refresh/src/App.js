@@ -11,7 +11,7 @@ function App() {
         </p>
         */}
         <p>
-          CONTEXT AND CONTENTS
+          <code> CONTEXT AND CONTENTS </code>
         </p>
         <img src={testIMG} className="zoom" alt="logo" />
         <p>

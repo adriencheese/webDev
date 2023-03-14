@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: pink;
 }
 
 .App-link {
@@ -25,8 +25,7 @@
 }
 
 .zoom {
-  padding: 0px;
-  transition: transform .45s; /* Animation */
+  transition: transform .6s; /* Animation */
   /*1158 × 1544 */
   height: 350px;
   width: 290px;
