@@ -1,8 +1,7 @@
-import testIMG from './assets/test.jpg';
-import './App.css';
+import testIMG from '../assets/test.jpg';
+import './MainPage.css';
 
-function App() {
-  
+const MainPage = () => {
   return (
     <div className="App">
       <p className="App-header">
@@ -25,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainPage;

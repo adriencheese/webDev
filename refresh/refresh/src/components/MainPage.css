@@ -20,7 +20,7 @@
   font-size: calc(10px + 7vmin);
   color: white;
 
-  background-image: url(../public/textbg.jpg);
+  background-image: url(../../public/textbg.jpg);
   background-size: contain;
 }
 
