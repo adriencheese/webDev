@@ -1,11 +1,17 @@
-import { MainPage, BigText } from './components/exporting'
+import { MainPage, BigText, Recording, Password } from './components/exporting'
+import { BrowserRouter as Router, Routes, Route}
+    from 'react-router-dom';
 
 const App = () => {
   return (
-    <div>
-      <BigText />
-      <MainPage />
-    </div>
+    <Router>
+    <Routes>
+        <Route exact path='/' element={<Password />} />
+        <Route exact path='/goodkushandalcohol' element={<MainPage />} />
+        <Route path='/iloveyouprincess' element={<Recording/>} />
+    </Routes>
+    <BigText />
+    </Router>
   );
 }
 

@@ -16,12 +16,28 @@
   text-orientation: mixed;
   transform: rotate(-180deg);
   align-items: center;
-  font-family: 'Rubik Iso';
-  font-size: calc(10px + 7vmin);
-  color: white;
+  justify-content: center;
+  font-family: 'Sedgwick Ave Display';
+  font-size: calc(10px + 8vmin);
+  color: rgb(255, 184, 184);
 
   background-image: url(../../public/textbg.jpg);
   background-size: contain;
+}
+
+.content-text {
+  font-family: 'Genos';
+  color: white;
+  overflow-y:visible;
+}
+
+.inline {
+  color: white;
+  white-space: nowrap;
+  font-family: 'Sedgwick Ave Display';
+  font-size: calc(10px + 3vmin);
+  max-height: 500px;
+  z-index: 150;
 }
 
 .zoom {
@@ -33,8 +49,13 @@
   max-height:500px;
   width: auto;
   height: auto;
+  margin: 3vh;
 }
 
 .zoom:hover {
   transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+#piano {
+  max-width: 400px;
 }

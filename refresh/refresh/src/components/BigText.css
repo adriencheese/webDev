@@ -1,35 +1,49 @@
 .container {
     z-index: 101;
-    color: white;
-    font-size: 20vh;
-    font-family: 'Buda'; 
+    color: rgb(255, 231, 231);
+    font-size: 10vh;
+    font-family: 'Sedgwick Ave Display'; 
     height: 100%;
+    width: 100%;
     overflow: hidden;
-   
 }
 
 .marquee {
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  top: 5%;
+}
+
+#top-row {
+  z-index: 2;
+  left: 20%;
+}
+
+#bottom-row {
+  color: rgb(223, 150, 25);
+  top: 85vh;
+  font-size: 6vh;
+  left: 0%;
+  z-index: 1;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee2 span {
+  animation-delay: 7.5s;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
   }
-  
-  .marquee span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 10s linear infinite;
+  100% {
+    transform: translate(-100%, 0);
   }
-  
-  .marquee2 span {
-    animation-delay: 5s;
-  }
-  
-  @keyframes marquee {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(-100%, 0);
-    }
-  }
+}
